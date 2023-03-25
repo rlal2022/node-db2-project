@@ -1,5 +1,7 @@
-const server = require('./api/server')
+/* eslint-disable */
+
+const server = require("./api/server");
 
 const port = process.env.PORT || 9000;
 
-server.listen(port, () => console.log(`\n** Running on port ${port} **\n`))
+server.listen(port, () => console.log(`\n** Running on port ${port} **\n`));
