@@ -13,10 +13,16 @@ const getByVin = (vin) => {
   return db("cars").where("vin", vin).first();
 };
 
-const create = (car) => {
-  return db("cars")
-    .insert(car)
-    .then(([id]) => getByVin(id));
+const create = async (car) => {
+  // return db("cars")
+  //   .insert(car)
+  //   .then(([id]) => {
+  //     getByVin(id);
+  //   });
+
+  const result = await db("cars").insert(car);
+  const createdCar = getById(result);
+  return createdCar;
 };
 
 module.exports = {
